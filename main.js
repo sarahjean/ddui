@@ -13,7 +13,13 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+      width: 800,
+      height: 600,
+      'min-width': 500,
+      'min-height': 200,
+      center: true,
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -58,3 +64,8 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+// @todo make file browser open when "add app" is clicked.
+// only allow directories to be added that contain ddui.info.yml.
+// save app dir path to a locally cached file.
+// change main window to iterate over array of added apps.

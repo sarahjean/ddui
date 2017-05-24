@@ -1,19 +1,208 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Drupal Dev UI</title>
 
-  <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
-  </script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- MetisMenu CSS -->
+  <link href="node_modules/metismenu/dist/metisMenu.min.css" rel="stylesheet">
+  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Drupal Dev UI</a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <ul class="nav navbar-top-links navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="create-app">
+          Create App <i class="fa fa-plus-square fa-fw"></i></i>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" onclick="registerApp();" data-toggle="dropdown" href="#" id="register-app">
+          Register App <i class="fa fa-plus fa-fw"></i></i>
+        </a>
+      </li>
+      <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+
+    <div class="navbar-default sidebar" role="navigation">
+      <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+          <li class="sidebar-search">
+            <div class="input-group custom-search-form">
+              <input type="text" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+            </div>
+            <!-- /input-group -->
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Applications<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a href="#">Castle <span class="fa arrow"></span></a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#">Acquia BLT</a>
+                  </li>
+                  <li>
+                    <a href="#">Acquia Dev Desktop</a>
+                  </li>
+                  <li>
+                    <a href="#">Acquia Pipelines</a>
+                  </li>
+                </ul>
+                <!-- /.nav-third-level -->
+              </li>
+              <li>
+                <a href="#">NASDAQ <span class="fa arrow"></span></a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#">Composer Conductor <span class="fa arrow"></span></a>
+                    <ul class="nav nav-fourth-level">
+                      <li><a href="#">Info</a></li>
+                      <li><a href="#">Install</a></li>
+                      <li><a href="#">Update</a></li>
+                      <li><a href="#">Nuke</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Acquia BLT <span class="fa arrow"></span></a>
+                    <ul class="nav nav-fourth-level">
+                      <li><a href="#">Code Beautification</a></li>
+                      <li><a href="#">Code Validation</a></li>
+                      <li><a href="#">Frontend</a></li>
+                      <li><a href="#">Integrations</a></li>
+                      <li><a href="#">Setup</a></li>
+                      <li><a href="#">Sync</a></li>
+                      <li><a href="#">Testing</a></li>
+                      <li><a href="#">Deploy</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Drupal VM</a>
+                  </li>
+                  <li>
+                    <a href="#">Travis CI</a>
+                  </li>
+                  <li>
+                    <a href="#">Acquia Cloud Site Factory</a>
+                  </li>
+                </ul>
+                <!-- /.nav-third-level -->
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="index.html"><i class="fa fa-wrench fa-fw"></i> Configuration</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+  </nav>
+
+  <!-- Page Content -->
+  <div id="page-wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Applications</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Castle
+          </div>
+          <div class="panel-body">
+            <p>Toolset: Acquia BLT, Acquia Dev Desktop, Acquia Pipelines</p>
+          </div>
+          <div class="panel-footer">
+            <a href="http://blt.readthedocs.io/en/8.x/" target="_blank">View application</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            NASDAQ
+          </div>
+          <div class="panel-body">
+            <p>Toolset: Acquia BLT, Drupal VM, Travis CI, Acquia Cloud Site Factory</p>
+          </div>
+          <div class="panel-footer">
+            <a href="http://docs.drupalvm.com/en/latest/" target="_blank">View application</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Warner Music Group
+          </div>
+          <div class="panel-body">
+            <p>Toolset: None.</p>
+          </div>
+          <div class="panel-footer">
+            <a href="https://docs.acquia.com/pipelines" target="_blank">View application</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /#page-wrapper -->
+
+
+</div>
+<!-- /#wrapper -->
+
+
+
+</body>
+
+<script>require('./renderer.js')</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');</script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="node_modules/metismenu/dist/metisMenu.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/sb-admin-2.js"></script>
+
+<script src="js/custom.js"></script>
+
+
 </html>
